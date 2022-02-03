@@ -1,0 +1,5 @@
+
+div.logoDiv{
+background-image:none;
+filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/logo.png', sizingMethod='crop');
+}

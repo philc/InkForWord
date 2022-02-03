@@ -1,0 +1,117 @@
+html,body{
+	background-color:#f3f0e8;
+
+	margin-top:0px;
+	margin-left:0px;
+	margin-right:0px;
+	padding:0px;
+	font: 1.0em Sans, arial, helvetica;
+	/* IE block level content centering workaround*/
+	text-align:center;
+}
+
+a:link{
+	color:#233192;
+}
+a:visited{
+	color:#8f8f9a;
+}
+
+div.page{
+	max-width: 980;
+	/* IE 5 & 6 max-width bastardization */
+	width:expression( 
+	    document.body.clientWidth > (980) ?
+	        "980":
+	        "auto" );
+
+	margin-left:auto;
+	margin-right:auto;
+	margin-top: 50px;
+	padding:10px;
+}
+
+
+pre{
+ white-space: pre-wrap;       /* css-3 */
+ white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+ white-space: -pre-wrap;      /* Opera 4-6 */
+ white-space: -o-pre-wrap;    /* Opera 7 */
+ word-wrap: break-word;       /* Internet Explorer 5.5+ */
+
+}
+.xml-comment{
+	text-size:smaller;
+	color:#2255AA;
+	background-color:#EFEFEF;
+
+}
+
+div.logoDiv{
+	width:246px;
+	height:256px;
+	background-image:url(images/logo.png);
+	float:left;
+	position:relative;
+	left:-45px;
+	top:-52px;
+	/* add 5px of padding on each side*/
+	margin-right:-40px;
+	margin-bottom:-47px;
+	
+}
+img#video{
+	float:left;
+	margin-right:20px;
+	border-size:1px;
+	margin-bottom:20px;
+}
+
+.top{
+		background:url(images/dot.png) top repeat-x;
+		background-color:white;	
+}
+.right{
+		background:url(images/dot.png) right repeat-y;
+}
+.bottom{
+		background:url(images/dot.png) bottom repeat-x;
+}
+.left{
+		background:url(images/dot.png) left repeat-y;
+}
+.top-left{
+	background:url(images/top-left.png) top left no-repeat;
+}
+.top-right{
+	background:url(images/top-right.png) top right no-repeat;
+}
+.bottom-left{
+	background:url(images/bottom-left.png) bottom left no-repeat;
+	margin-bottom:-35px;	/* Negative margin so IE will render the bottom portion */
+}
+.bottom-right{
+	background:url(images/bottom-right.png) bottom right no-repeat;
+}
+
+
+
+
+div.content{
+	position:relative;
+	padding:10px;
+	text-align:left;
+}
+
+a.download{
+	font-size:larger;
+}
+p.copyright{
+	font-size:smaller;
+}
+/* Owen hack. Hidden from IE. */
+head:first-child+body p.copyright {
+	margin-top:40px;
+}
+
+

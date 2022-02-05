@@ -1,4 +1,4 @@
-# InkForWord
+# Ink for Word
 
 A 2006 tablet PC addin for Microsoft Word, written for undergrad HCI research. It's now defunct.
 

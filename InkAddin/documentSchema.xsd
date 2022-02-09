@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<xs:schema
+        targetNamespace=
+        "http://www.philisoft.com/schemas/annoflow"
+        elementFormDefault="qualified"
+        xmlns:InkAddin="http://www.philisoft.com/schemas/annoflow" 
+        xmlns=
+        "http://www.philisoft.com/schemas/annoflow"
+        xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+
+  <xs:element name="anchor" type="anchorType">
+    
+  </xs:element>
+
+  <xs:complexType name="anchorType" mixed="true">
+    <xs:sequence>
+      <!-- 
+      <xs:element name="anchor" minOccurs="0" maxOccurs="unbounded"/>
+      -->
+      <xs:any minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+    <xs:attribute name="id" type="xs:integer" />
+    
+  </xs:complexType>
+
+
+</xs:schema>

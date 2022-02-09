@@ -1,0 +1,224 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectTypeGuids>{BAA0C2D2-18E2-41B9-852F-F413020CAA33};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <OutputType>Library</OutputType>
+    <NoStandardLibraries>false</NoStandardLibraries>
+    <RootNamespace>InkAddin</RootNamespace>
+    <AssemblyName>InkAddin</AssemblyName>
+    <VSTO_HostDocumentName>InkAddinTemplate.dot</VSTO_HostDocumentName>
+    <ProjectGuid>{33582E70-6EA6-4DEC-9E35-0D08E7AC45EB}</ProjectGuid>
+  </PropertyGroup>
+  <PropertyGroup>
+    <VSTO_TrustAssembliesLocation>true</VSTO_TrustAssembliesLocation>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <WarningLevel>4</WarningLevel>
+    <RegisterForComInterop>false</RegisterForComInterop>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+    <DefineConstants>TRACE</DefineConstants>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="IALoader, Version=1.7.6110.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\Program Files\Microsoft SDKs\Windows\v1.0\Bin\IALoader.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Ink, Version=1.7.2600.2180, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\Program Files\Reference Assemblies\Microsoft\Tablet PC\v1.7\Microsoft.Ink.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Ink.Analysis, Version=1.7.6110.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\Program Files\Reference Assemblies\Microsoft\Tablet PC\v1.7\Microsoft.Ink.Analysis.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.XML" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="Microsoft.VisualStudio.Tools.Applications.Runtime" />
+    <Reference Include="Microsoft.Office.Tools.Common" />
+    <Reference Include="Microsoft.Office.Tools.Word" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="stdole">
+      <Guid>{00020430-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <WrapperTool>primary</WrapperTool>
+    </COMReference>
+    <COMReference Include="Microsoft.Office.Core">
+      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <WrapperTool>primary</WrapperTool>
+    </COMReference>
+    <COMReference Include="VBIDE">
+      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <WrapperTool>primary</WrapperTool>
+    </COMReference>
+    <COMReference Include="Word">
+      <Guid>{00020905-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>8</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <WrapperTool>primary</WrapperTool>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="documentSchema.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="documentSchema.xsx">
+      <DependentUpon>documentSchema.xsd</DependentUpon>
+    </None>
+    <None Include="InkAddinTemplate.dot" />
+    <Compile Include="Addin.cs" />
+    <Compile Include="DisplayLayer\DisplayBuffer.cs" />
+    <Compile Include="DisplayLayer\DisplayLayer.cs" />
+    <Compile Include="DisplayLayer\DisplayLayer.Drawing.cs" />
+    <Compile Include="DocumentEventWrapper.ApiHooks.cs" />
+    <Compile Include="InkDocument.Persist.cs" />
+    <Compile Include="IStrokeAnchor.cs" />
+    <Compile Include="MarginRangeStrokeAnchor.cs" />
+    <Compile Include="MarginReflowManager.cs" />
+    <Compile Include="StrokeAnchorFactory.cs" />
+    <Compile Include="StrokeManager.cs" />
+    <Compile Include="DocumentEventWrapper.cs" />
+    <Compile Include="InkDivider.cs" />
+    <Compile Include="InkDocument.cs" />
+    <Compile Include="Interop.cs" />
+    <Compile Include="MSWordWindows.cs" />
+    <Compile Include="Preferences.cs" />
+    <Compile Include="Recognition\OneStroke\Delete.cs" />
+    <Compile Include="Recognition\OneStroke\Italic.cs" />
+    <Compile Include="Recognition\OneStroke\LineBreak.cs" />
+    <Compile Include="Recognition\OneStroke\Lowercase.cs" />
+    <Compile Include="Recognition\OneStroke\Parenthesis.cs" />
+    <Compile Include="Recognition\OneStroke\Transpose.cs" />
+    <Compile Include="Recognition\OneStroke\Unknown.cs" />
+    <Compile Include="Recognition\ProofMark.cs" />
+    <Compile Include="Recognition\ProofMarkManager.cs" />
+    <Compile Include="Recognition\SigerRecognizer.cs" />
+    <Compile Include="Recognition\StrokeRecognizer.cs" />
+    <Compile Include="Recognition\ThreeStroke\Capitalize.cs" />
+    <Compile Include="Recognition\ThreeStroke\InsertQuote.cs" />
+    <Compile Include="Recognition\TwoStroke\InsertApostraphe.cs" />
+    <Compile Include="Recognition\TwoStroke\InsertComma.cs" />
+    <Compile Include="Recognition\TwoStroke\InsertPeriod.cs" />
+    <Compile Include="Recognition\TwoStroke\SmallCaps.cs" />
+    <Compile Include="RangeStrokeAnchor.cs" />
+    <Compile Include="ThisDocument.cs">
+      <DependentUpon>InkAddinTemplate.dot</DependentUpon>
+    </Compile>
+    <None Include="ThisDocument.Designer.xml">
+      <DependentUpon>ThisDocument.cs</DependentUpon>
+    </None>
+    <Compile Include="ThisDocument.Designer.cs">
+      <DependentUpon>ThisDocument.Designer.xml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ThisDocument.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>ThisDocument.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ui\InkInputPanel.resx">
+      <DependentUpon>InkInputPanel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ui\ProofMarkEntry.resx">
+      <DependentUpon>ProofMarkEntry.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ui\ProofMarkPanel.resx">
+      <DependentUpon>ProofMarkPanel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="ui\InkInputPanel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ui\InkInputPanel.designer.cs">
+      <DependentUpon>InkInputPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ui\ProofMarkEntry.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ui\ProofMarkEntry.designer.cs">
+      <DependentUpon>ProofMarkEntry.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ui\ProofMarkPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ui\ProofMarkPanel.designer.cs">
+      <DependentUpon>ProofMarkPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VectorUtil.cs" />
+    <Compile Include="WindowCalculator.cs" />
+    <Compile Include="WindowsMessages.cs" />
+    <Compile Include="WordUtil.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Siger\SInk\SiGeR.vbproj">
+      <Project>{EF31400B-51B4-421B-A0ED-2D9E7775E093}</Project>
+      <Name>SiGeR</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft.VisualStudio.OfficeTools.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{BAA0C2D2-18E2-41B9-852F-F413020CAA33}">
+        <ProjectProperties HostName="InkAddinTemplate.dot" HostPackage="{DF5D6357-F8E9-4257-8E6D-C94FD5C44B29}" ApplicationType="DOT" Language="CS" TemplatesPath="VSTOTemplates" />
+        <Host Name="Word Document" Path=".\InkAddinTemplate.dot" GeneratedCodeNamespace="InkAddin">
+          <HostItem Name="ThisDocument" Code="ThisDocument.cs" CanonicalName="ThisDocument" Blueprint="ThisDocument.Designer.xml" GeneratedCode="ThisDocument.Designer.cs" />
+        </Host>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>

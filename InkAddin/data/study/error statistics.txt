@@ -1,0 +1,36 @@
+
+Lions
+6 delete
+3 transpose
+2 line break
+4 lower case
+1 italic
+
+6 comma
+3 periods
+2 apostrophe
+0 small caps
+0 parenthesis
+
+2 quotes
+5 capitalize
+
+= 34 errors
+
+
+Dump
+6 delete
+3 transpose
+2 line break
+4 lower case
+1 italic
+
+6 comma
+3 periods
+2 apostrophe
+0 small caps
+0 parenthesis
+
+2 quotes
+5 capitalize
+

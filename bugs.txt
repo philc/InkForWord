@@ -1,0 +1,21 @@
+Scroll as we're anchoring can mess things up
+
+
+Writing a margin annotation very close to the margin (or inline very close to the margin) may not detect properly. Especially if it's an anchor mark. Try and detect what where the "majority" of the strokes are  - not just the bounding box
+
+when a margin control gets moved horizontally, translate its anchor back to the beginning of the paragraph so it can't be selected and deleted...
+
+this is pretty important for the undo panel's screen shots, and for 
+general usefulness:
+proofMarks should store the index of the point that they use to anchor, 
+not the point itself. The point itself is obsolete once the proof mark 
+gets moved around the document
+
+Bugs in the new stroke controls:
+MINOR: If you replace a character with a bigger one, like "i" with "A", the documetn shifts around, but the coords of the Ranges don't change. So, the strokes get off until the actual range numbers are changed, then they snap back into place. Can fix this by having a timer every 2-3 seconds that checks whether the coords of ranges have changed or not,a nd if they have, translate the strokes.
+
+Add a recognition event that reports when something is recognized, even 
+if it could become some kind of other proof reading mark if another 
+stroke was added. 
+
+If the margins change, we don't pick that up. Listen for margin changes.
